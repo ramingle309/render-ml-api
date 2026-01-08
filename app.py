@@ -1,8 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from recommender import recommend_by_barcode
 import os
 
 app = Flask(__name__)
+
+# ✅ ENABLE CORS (IMPORTANT)
+CORS(app)  # allows all origins (safe for learning/demo)
 
 @app.route("/health", methods=["GET"])
 def health():
